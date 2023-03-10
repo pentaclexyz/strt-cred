@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useCallback, useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { CHAIN_NAMESPACES, WALLET_ADAPTERS } from '@web3auth/base';
 import { Web3AuthNoModal } from '@web3auth/no-modal';
@@ -8,11 +8,22 @@ import RPC from '../web3RPC.js'; // for using web3.js
 
 const TwitterContext = createContext({});
 
-const clientId =
-  'BG8N6-HirEMKVbkYJSrlkY1RlzfWzIKSpB7bCaxtzqHBqvzWOlbA3nFw-XfUOWPzYmp9n3o4Fi3tRRlleZI-cko'; // get from https://dashboard.web3auth.io
+const clientId = process.env.REACT_APP_WEB3_AUTH_KEY; // get from https://dashboard.web3auth.io
 const TwitterProvider = ({ children }) => {
+  const [userInfo, setUserInfo] = useState(null);
   const [web3auth, setWeb3auth] = useState(null);
   const [provider, setProvider] = useState(null);
+  
+  const getUserInfo = useCallback(async () => {
+    if (!web3auth) {
+      console.log('web3auth not initialized yet');
+      return;
+    }
+    const user = await web3auth.getUserInfo();
+    setUserInfo(user);
+  }, [web3auth]);
+
+
   useEffect(() => {
     (async () => {
       try {
@@ -35,6 +46,8 @@ const TwitterProvider = ({ children }) => {
         await web3auth.init();
         if (web3auth.provider) {
           setProvider(web3auth.provider);
+
+          getUserInfo();
         }
       } catch (error) {
         console.error(error);
@@ -51,14 +64,6 @@ const TwitterProvider = ({ children }) => {
     console.log(idToken);
   };
 
-  const getUserInfo = async () => {
-    if (!web3auth) {
-      console.log('web3auth not initialized yet');
-      return;
-    }
-    const user = await web3auth.getUserInfo();
-    console.log(user);
-  };
 
   const logout = async () => {
     if (!web3auth) {
@@ -67,6 +72,7 @@ const TwitterProvider = ({ children }) => {
     }
     await web3auth.logout();
     setProvider(null);
+    setUserInfo(null);
   };
 
   const getChainId = async () => {
@@ -118,6 +124,7 @@ const TwitterProvider = ({ children }) => {
   };
 
   const getBalance = async () => {
+    debugger
     if (!provider) {
       console.log('provider not initialized yet');
       return;
@@ -149,16 +156,6 @@ const TwitterProvider = ({ children }) => {
     console.log(signedMessage);
   };
 
-  const getPrivateKey = async () => {
-    if (!provider) {
-      console.log('provider not initialized yet');
-      return;
-    }
-    const rpc = new RPC(provider);
-    const privateKey = await rpc.getPrivateKey();
-    console.log(privateKey);
-  };
-
   const login = async () => {
     if (!web3auth) {
       console.log('web3auth not initialized yet');
@@ -187,8 +184,8 @@ const TwitterProvider = ({ children }) => {
         getBalance,
         sendTransaction,
         signMessage,
-        getPrivateKey,
         provider,
+        userInfo,
       }}>
       {children}
     </TwitterContext.Provider>
@@ -198,4 +195,3 @@ const TwitterProvider = ({ children }) => {
 const useTwitter = () => useContext(TwitterContext);
 
 export { TwitterProvider, useTwitter };
-

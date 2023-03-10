@@ -1,11 +1,18 @@
 import './App.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
-import { mainnet, goerli, configureChains, createClient, WagmiConfig } from 'wagmi';
+import {
+  mainnet,
+  goerli,
+  configureChains,
+  createClient,
+  WagmiConfig,
+} from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import TokenGatedContent from './components/TokenGatedPage';
 import { SSXProvider } from '@spruceid/ssx-react';
+import {TwitterProvider} from './providers/Twitter';
 
 const { chains, provider } = configureChains(
   [mainnet, goerli],
@@ -35,7 +42,9 @@ function App() {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <SSXProvider>
-          <TokenGatedContent />
+          <TwitterProvider>
+            <TokenGatedContent />
+          </TwitterProvider>
         </SSXProvider>
       </RainbowKitProvider>
     </WagmiConfig>
