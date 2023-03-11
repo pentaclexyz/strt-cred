@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Header from './Header';
 import Button from './Button';
 import { Network, Alchemy } from 'alchemy-sdk';
 import { useSSX } from '@spruceid/ssx-react';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useSigner } from 'wagmi';
 import TwitterVerification from './TwitterVerification';
+import Header from "./layouts/Header";
 
 const ENS_CONTRACT = '0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85';
 
