@@ -1,9 +1,9 @@
 {
-  "name": "ssx-test-token-gated",
+  "name": "strt-crd",
   "version": "0.0.3",
   "private": true,
   "repository": {
-    "url": "ssh://git@github.com:spruceid/ssx.git"
+    "url": "ssh://git@github.com:pentaclexyz/strt-cred.git"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.8.1",
