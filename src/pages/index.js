@@ -1,4 +1,4 @@
-import TokenGatedContent from './verify/TokenGatedContent';
+import TokenGatedContent from '../components/TokenGatedContent';
 
 export default function Index() {
   return <TokenGatedContent />;

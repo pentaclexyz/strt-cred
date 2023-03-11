@@ -1,15 +1,9 @@
 const Button = ({ children, onClick, loading }) => {
-    return <button
-        className='Button'
-        onClick={!loading ? onClick : () => { }}
-    >
+    return <button className='Button' onClick={!loading ? onClick : () => { }}>
         {
             loading ?
                 <div className='Button-loader'>
-                    <img
-                        src='/spinner.svg'
-                        alt='Loading...'
-                    />
+                    <img src='/spinner.svg' alt='Loading...'/>
                 </div> :
                 null
         }
