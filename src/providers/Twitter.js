@@ -8,7 +8,7 @@ import RPC from '../web3RPC.js'; // for using web3.js
 
 const TwitterContext = createContext({});
 
-const clientId = process.env.REACT_APP_WEB3_AUTH_KEY; // get from https://dashboard.web3auth.io
+const clientId = process.env.NEXT_PUBLIC_WEB3_AUTH_KEY; // get from https://dashboard.web3auth.io
 const TwitterProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [web3auth, setWeb3auth] = useState(null);
@@ -21,12 +21,14 @@ const TwitterProvider = ({ children }) => {
     }
     const user = await web3auth.getUserInfo();
     setUserInfo(user);
+    return user;
   }, [web3auth]);
 
 
   useEffect(() => {
     (async () => {
       try {
+        console.log(clientId)
         const web3auth = new Web3AuthNoModal({
           clientId,
           chainConfig: {
@@ -50,7 +52,7 @@ const TwitterProvider = ({ children }) => {
           getUserInfo();
         }
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     })();
   }, []);
@@ -124,7 +126,6 @@ const TwitterProvider = ({ children }) => {
   };
 
   const getBalance = async () => {
-    debugger
     if (!provider) {
       console.log('provider not initialized yet');
       return;

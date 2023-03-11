@@ -3,6 +3,7 @@ yarn-error.log
 
 # package directories
 node_modules
+.next
 
 # .envs
 .env
