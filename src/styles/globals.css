@@ -10,7 +10,7 @@
         @apply text-2xl;
         @apply sm:text-4xl;
         @apply tracking-wide;
-        @apply matter-bold;
+        /*@apply matter-bold;*/
     }
 
     h2 {
@@ -18,7 +18,7 @@
         @apply pt-4;
         @apply pb-2;
         @apply tracking-wide;
-        @apply matter-medium;
+        /*@apply matter-medium;*/
     }
 
     h3 {
@@ -34,6 +34,8 @@
         font-family: matter, arial, sans-serif;
         color: var(--primary);
         background-color: var(--bg-01);
+        margin:0;
+        padding:0;
     }
 
     :root, html[data-theme="light"] {

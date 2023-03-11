@@ -72,15 +72,11 @@ const LoggedInView = () => {
   return (
     <>
       {userInfo && (
-        <>
-          <div>Logged in as {userInfo.name}</div>
-        </>
+          <div>@{userInfo.name}</div>
       )}
 
       <div>
-        <button onClick={logout} className="card">
-          Log Out
-        </button>
+        <button onClick={logout} className="bg-secondary">Disconnect</button>
       </div>
     </>
   );
@@ -91,7 +87,7 @@ export default function TwitterVerification() {
 
   const unloggedInView = (
     <button onClick={login} className="card">
-      Login
+      Log in with Twitter
     </button>
   );
 
