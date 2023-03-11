@@ -5,12 +5,10 @@ import Footer from "../components/layouts/Footer";
 export default function Document() {
     return (
         <Html>
-            <Head>
-            </Head>
+            <Head></Head>
             <body>
                 <Main/>
                 <NextScript/>
-                <Footer/>
             </body>
         </Html>
     );

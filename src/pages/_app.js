@@ -13,6 +13,8 @@ import { SSXProvider } from '@spruceid/ssx-react';
 import {TwitterProvider} from '../providers/Twitter';
 import "../styles/globals.css";
 import Head from "next/head";
+import Footer from "../components/layouts/Footer";
+import {Main} from "next/document";
 
 function App({ Component, pageProps }) {
   
@@ -44,6 +46,7 @@ function App({ Component, pageProps }) {
         <SSXProvider>
           <TwitterProvider>
             <Component {...pageProps}/>
+            <Footer/>
           </TwitterProvider>
         </SSXProvider>
       </RainbowKitProvider>
