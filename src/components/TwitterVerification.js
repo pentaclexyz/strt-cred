@@ -93,7 +93,7 @@ export default function TwitterVerification() {
 
   return (
     <>
-      <div className="grid">{provider ? <LoggedInView /> : unloggedInView}</div>
+      <div>{provider ? <LoggedInView /> : unloggedInView}</div>
     </>
   );
 }
