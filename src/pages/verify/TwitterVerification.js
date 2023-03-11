@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useTwitter } from '../providers/Twitter.js';
+import { useTwitter } from '../../providers/Twitter.js';
 
 const categories = [
   {

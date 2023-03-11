@@ -1,5 +1,5 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useTwitter } from '../providers/Twitter.js';
+import { useTwitter } from '../../providers/Twitter.js';
 
 const Header = ({ ownEnsName }) => {
   const { userInfo } = useTwitter();

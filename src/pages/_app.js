@@ -11,7 +11,8 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { SSXProvider } from '@spruceid/ssx-react';
 import {TwitterProvider} from '../providers/Twitter';
-import '../globals.css'
+import '../siwe.css'
+import Head from "next/head";
 
 function App({ Component, pageProps }) {
   
@@ -38,6 +39,7 @@ function App({ Component, pageProps }) {
 
   return (
     <WagmiConfig client={wagmiClient}>
+      <Head>STRT CRED</Head>
       <RainbowKitProvider chains={chains}>
         <SSXProvider>
           <TwitterProvider>

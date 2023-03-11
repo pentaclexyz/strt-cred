@@ -70,11 +70,11 @@ const TokenGatedContent = () => {
             ownEnsName ? (
                 <TwitterVerification  />
             ) : (
-              <> No ENS name found.</>
+              <>An ENS domain is required to proceed.</>
             )
           ) : (
             <>
-              <Button onClick={handleClick}>SIGN-IN WITH ETHEREUM</Button>
+              <Button onClick={handleClick}>Sign in with Ethereum</Button>
             </>
           )}
         </div>

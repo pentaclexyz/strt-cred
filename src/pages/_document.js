@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>StrtCred</title>
       </Head>
       <body>
         <Main />
