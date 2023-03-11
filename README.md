@@ -1,3 +1,12 @@
+# Run the thing
+
+`git clone`
+
+`yarn install`
+
+`yarn dev`
+
+
 # SSX ENS Token Gated + RainbowKit
 
 This example will show developers how to enable token-gated access in their dapp with SSX. Additionally, it will show a developer how to integrate and use RainbowKit in an SSX-powered dapp.
