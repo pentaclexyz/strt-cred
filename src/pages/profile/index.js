@@ -32,7 +32,7 @@ export default function Profile() {
 
                 <p className={"p-4 border border-primary"}>All profiles</p>
                 <Link href={"/profile/edit"}>edit / create new</Link>
-                <Link href={"/profile/cdartttt"}>slug</Link>
+                <Link href={"/profile/cdart"}>slug</Link>
 
             </section>
         </>
