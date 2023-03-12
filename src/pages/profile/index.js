@@ -12,6 +12,7 @@ export default function Profile() {
                 title="Strt Cred | My profile"
                 description="Something"
             />
+
             <Header/>
 
             {/*<PageHeading heading={"MY PROFILE"} />*/}
@@ -110,6 +111,7 @@ export default function Profile() {
 
             </section>
             {/*</LayoutPageContent>*/}
+
         </>
     );
 };
