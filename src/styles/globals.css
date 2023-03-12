@@ -1,4 +1,5 @@
 @import url(./siwe.css);
+@import url(./fonts.css);
 
 @tailwind base;
 @tailwind components;
@@ -9,16 +10,12 @@
     h1 {
         @apply text-2xl;
         @apply sm:text-4xl;
-        @apply tracking-wide;
-        /*@apply matter-bold;*/
     }
 
     h2 {
         @apply text-xl;
         @apply pt-4;
         @apply pb-2;
-        @apply tracking-wide;
-        /*@apply matter-medium;*/
     }
 
     h3 {
@@ -31,7 +28,7 @@
     html,
     body {
         font-size: 16px;
-        font-family: matter, arial, sans-serif;
+        font-family: minitel, arial, sans-serif;
         color: var(--primary);
         background-color: var(--bg-01);
         margin:0;
@@ -41,7 +38,7 @@
     :root, html[data-theme="light"] {
         --primary: #05121B;
         --secondary: #E9A6D3;
-        --tertiary: #F492B9;
+        --tertiary: #0D3DFF;
         --highlight: #94F9B5;
         --border-primary: #fff;
         --border-secondary: #D5CDCB;

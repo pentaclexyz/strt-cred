@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTwitter } from '../providers/Twitter.js';
+import Button from "./Button";
 
 const categories = [
   {
@@ -76,7 +77,7 @@ const LoggedInView = () => {
       )}
 
       <div>
-        <button onClick={logout} className="bg-secondary">Disconnect</button>
+        <Button onClick={logout}>Disconnect</Button>
       </div>
     </>
   );

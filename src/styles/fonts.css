@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "aquarius";
+    src: url("../../public/fonts/FFFAquarius.ttf") format("truetype");
+}
+@font-face {
+    font-family: "apple";
+    src: url("../../public/fonts/Apple.ttf") format("truetype");
+}
+@font-face {
+    font-family: "cairo";
+    src: url("../../public/fonts/Cairo.ttf") format("truetype");
+}
+@font-face {
+    font-family: "astro";
+    src: url("../../public/fonts/fff-astro.ttf") format("truetype");
+}
+@font-face {
+    font-family: "atlantis";
+    src: url("../../public/fonts/fff-atlantis.ttf") format("truetype");
+}
+@font-face {
+    font-family: "five-dots";
+    src: url("../../public/fonts/KareFiveDots.ttf") format("truetype");
+}
+@font-face {
+    font-family: "minitel";
+    src: url("../../public/fonts/Minitel.ttf") format("truetype");
+}
+@font-face {
+    font-family: "invaders";
+    src: url("../../public/fonts/pixel_invaders.ttf") format("truetype");
+}
+@font-face {
+    font-family: "material-icons";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../../public/fonts/material-design-icons/material.ttf");
+}
+
+.material-icons {
+    font-family: material-icons;
+}
+
+.invaders {
+    font-family: invaders;
+}
+.minitel {
+    font-family: minitel;
+}
+.five-dots {
+    font-family: five-dots;
+}
+.at {
+    font-family: at;
+}
+.astro {
+    font-family: astro;
+}
+.cairo {
+    font-family: cairo;
+}
+.apple {
+    font-family: apple;
+}
+.aquarius {
+    font-family: aquarius;
+}
