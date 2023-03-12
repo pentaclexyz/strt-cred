@@ -29,11 +29,9 @@ export default function Profile() {
             <Header/>
 
             <section className={"flex flex-col gap-y-8 p-4 text-center text-xs"}>
-
                 <p className={"p-4 border border-primary"}>All profiles</p>
                 <Link href={"/profile/edit"}>edit / create new</Link>
-                <Link href={"/profile/cdartttt"}>slug</Link>
-
+                <Link href={"/profile/cdart"}>slug</Link>
             </section>
         </>
     );

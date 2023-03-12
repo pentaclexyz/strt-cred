@@ -12,12 +12,13 @@ import CredLinks from "../../components/profile/CredLinks";
 export default function Profile() {
 
     const name = "cdartttt";
-    const bio="Semi-retired derivatives trader.";
-    const githubId="cdartttt";
-    const twitterId="cdartttt";
-    const blog="cdartttt.substack.com";
-    const website="cdartttt.com";
-    const image="cdart.jpeg";
+
+    const bio = "Semi-retired derivatives trader.";
+    const githubId = "cdartttt";
+    const twitterId = "cdartttt";
+    const blog = "cdartttt.substack.com";
+    const website = "cdartttt.com";
+    const image = "cdart.jpeg";
 
     return (
         <>
@@ -28,6 +29,10 @@ export default function Profile() {
             <Header/>
 
             <section className={"text-xs"}>
+
+                <div className={"bg-highlight p-8 text-center"}>
+                    <h1>Pentacle doing Monday</h1>
+                </div>
 
                 {/*TODO why is this component breaking the page?*/}
                 {/*<Profile name={name} bio={"Semi-retired derivatives trader."} githubId={"cdartttt"}*/}
