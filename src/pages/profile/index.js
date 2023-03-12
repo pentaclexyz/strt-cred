@@ -23,7 +23,7 @@ export default function Profile() {
         <>
             <NextSeo
                 title={`${name} . STRT CRED `}
-                description="Something"
+                description={`${name} is on STRT CRED `}
             />
             <Header/>
 
@@ -89,8 +89,6 @@ export default function Profile() {
 
                 </section>
             </section>
-            {/*</LayoutPageContent>*/}
-
         </>
     );
 };
