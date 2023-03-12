@@ -12,6 +12,12 @@ import CredLinks from "../../components/profile/CredLinks";
 export default function Profile() {
 
     const name = "cdartttt";
+    const bio="Semi-retired derivatives trader.";
+    const githubId="cdartttt";
+    const twitterId="cdartttt";
+    const blog="cdartttt.substack.com";
+    const website="cdartttt.com";
+    const image="cdart.jpeg";
 
     return (
         <>
@@ -23,22 +29,25 @@ export default function Profile() {
 
             <section className={"text-xs"}>
 
-                {/*<article className={"w-full border-b border-primary"}>*/}
-                {/*    <img className={"w-full"} src="./img/user-bg.png" alt="profile image"/>*/}
-                {/*</article>*/}
+                {/*TODO why is this component breaking the page?*/}
+                {/*<Profile name={name} bio={"Semi-retired derivatives trader."} githubId={"cdartttt"}*/}
+                {/*         twitterId={"cdartttt"} blog={"cdartttt.com"} website={"cdartttt.com"}/>*/}
 
                 <article className={"px-4 py-4 flex flex-row justify-between items-center border-b border-primary"}>
                     <div className={"flex gap-x-4 items-center"}>
-                        <div><img className={"rounded-full w-20 h-20"} src={"./img/cdart.jpeg"}/></div>
+                        <div><img className={"rounded-full w-20 h-20"} src={`./img/${image}`}/></div>
                         <div className={"flex flex-col gap-y-2"}>
                             <div>@{name}</div>
-                            <div>Semi-retired derivatives trader.</div>
+                            <div>{bio}</div>
                         </div>
                     </div>
                     <div className={"flex gap-x-4"}>
-                        <div>twitter</div>
-                        <div>github</div>
-                        <div>website</div>
+                        <div className={"flex gap-x-4"}>
+                            {twitterId && <div><a href={`https://twitter.com/${twitterId}`}>@{twitterId}</a></div>}
+                            {githubId && <div><a href={`https://github.com/${githubId}`}>github</a></div>}
+                            {blog && <div><a href={`https://${blog}`}>blog</a></div>}
+                            {website && <div><a href={`https://${website}`}>website</a></div>}
+                        </div>
                     </div>
                 </article>
 
@@ -46,8 +55,14 @@ export default function Profile() {
 
                     <div className={"col-span-4"}>
                         <div className={"flex flex-col"}>
-                            <CredLinks title={"Contributed"} items={[{name: "Yooler", image: "euler.jpg"},{name: "West Ham", image: "westham.jpg"}]}/>
-                            <CredLinks title={"Worked with"} items={[{name: "Scups", image: "scups.jpeg"},{name: "Laurel", image: "laurel.jpg"}]}/>
+                            <CredLinks title={"Contributed"} items={[{name: "Yooler", image: "euler.jpg"}, {
+                                name: "West Ham",
+                                image: "westham.jpg"
+                            }]}/>
+                            <CredLinks title={"Worked with"} items={[{name: "Scups", image: "scups.jpeg"}, {
+                                name: "Laurel",
+                                image: "laurel.jpg"
+                            }]}/>
                             <CredLinks title={"Similar ppl"} items={[{name: "Laurel", image: "laurel.jpg"}]}/>
                         </div>
                     </div>
