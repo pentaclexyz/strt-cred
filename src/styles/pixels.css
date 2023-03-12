@@ -1,0 +1,9 @@
+.dotted-01 {
+    background-image: radial-gradient(circle at 0px 0px, var(--secondary) 1px, transparent 0);
+    background-size: 2px 2px;
+}
+
+.dotted-02 {
+    background-image: radial-gradient(circle at 0px 0px, var(--white) 1px, transparent 0);
+    background-size: 2px 2px;
+}

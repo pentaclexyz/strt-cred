@@ -47,6 +47,7 @@ module.exports = {
         "secondary": "var(--secondary)",
         "tertiary": "var(--tertiary)",
         "black": "var(--black)",
+        "white": "var(--white)",
         "txt-hover": "var(--txt-hover)",
         "txt-primary": "var(--txt-primary)",
         "txt-secondary": "var(--txt-secondary)",

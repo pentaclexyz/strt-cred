@@ -5,7 +5,7 @@ import { Popover } from "@headlessui/react";
 const Header = ({ ownEnsName }) => {
   const { userInfo, logout, login } = useTwitter();
   return (
-    <header className="flex flex-row justify-between items-center h-24 py-2 px-4 border-b border-t border-primary text-txt-inverted bg-tertiary">
+    <header className="flex flex-row justify-between items-center h-24 py-2 px-4 border-b border-t border-primary text-txt-inverted bg-tertiary dotted-01">
         <h1 className="text-xs">STRT CRED</h1>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
