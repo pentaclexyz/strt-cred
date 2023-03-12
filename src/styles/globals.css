@@ -36,9 +36,9 @@
     }
 
     :root, html[data-theme="light"] {
-        --primary: #05121B;
+        --primary: #000;
         --secondary: #E9A6D3;
-        --tertiary: #0D3DFF;
+        --tertiary: #0000FF;
         --highlight: #94F9B5;
         --border-primary: #fff;
         --border-secondary: #D5CDCB;
