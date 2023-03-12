@@ -5,7 +5,7 @@ import { Popover } from "@headlessui/react";
 const Header = ({ ownEnsName }) => {
   const { userInfo, logout, login } = useTwitter();
   return (
-    <header className="flex flex-row justify-between items-center py-8 px-4 border-b border-t border-primary bg-pink-200">
+    <header className="flex flex-row justify-between items-center h-24 py-2 px-4 border-b border-t border-primary text-txt-inverted bg-tertiary">
         <h1 className="text-xs">STRT CRED</h1>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
@@ -13,7 +13,7 @@ const Header = ({ ownEnsName }) => {
             <ConnectButton />
           </div>
           {!userInfo && (
-            <button onClick={login} className="w-24 text-slate-800">
+            <button onClick={login} className="w-24 text-xs">
               Log in with Twitter
             </button>
           )}
@@ -32,13 +32,10 @@ const Header = ({ ownEnsName }) => {
                   </div>
                 </Popover.Button>
 
-                <Popover.Panel className="overflow-hidden absolute right-4 z-10 w-36 rounded shadow-lg">
+                <Popover.Panel className="overflow-hidden absolute z-10 rounded shadow-lg">
                   <div className="grid bg-white">
-                    <span
-                      className="px-3 py-2 transition-colors cursor-pointer text-slate-800 hover:bg-slate-200"
-                      onClick={() => logout()}
-                    >
-                      Logout
+                    <span className="mt-2 px-4 py-2 text-xs cursor-pointer hover:bg-slate-200 " onClick={() => logout()}>
+                      Disconnect twitter
                     </span>
                   </div>
 

@@ -77,7 +77,7 @@ const LoggedInView = () => {
       )}
 
       <div>
-        <Button onClick={logout}>Disconnect</Button>
+        <Button onClick={logout}>Disconnect twitter</Button>
       </div>
     </>
   );
