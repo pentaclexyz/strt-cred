@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
@@ -8,6 +9,7 @@ module.exports = {
       backgroundImage: {
         "bg-01": "var(--bg-01)",
         "bg-02": "var(--bg-02)",
+        "gradient-01": "var(--gradient-01)",
       },
       fontSize: {
         xs: '8px',
