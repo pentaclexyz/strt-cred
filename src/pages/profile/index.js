@@ -46,25 +46,25 @@ export default function Profile() {
                             <article className={"flex flex-col border-b border-primary px-4 py-6 gap-y-4"}>
                                 <h2 className={""}>Contributed</h2>
                                 <div className={"flex gap-x-2 items-center"}>
-                                    <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
+                                    <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/euler.jpg"}/></div>
                                     <div>Yooler</div>
                                 </div>
                                 <div className={"flex gap-x-2 items-center"}>
-                                    <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
+                                    <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/westham.jpg"}/></div>
                                     <div>West Ham</div>
                                 </div>
                             </article>
                             <article className={"flex flex-col border-b border-primary px-4 py-6 gap-y-4"}>
                                 <h2 className={""}>Worked with</h2>
                                 <div className={"flex gap-x-2 items-center"}>
-                                    <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
+                                    <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/scups.jpeg"}/></div>
                                     <div>Scups</div>
                                 </div>
                             </article>
                             <article className={"flex flex-col px-4 py-6 gap-y-4"}>
                                 <h2 className={""}>Similar ppl</h2>
                                 <div className={"flex gap-x-2 items-center"}>
-                                    <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
+                                    <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/laurel.jpg"}/></div>
                                     <div>Laurel</div>
                                 </div>
                             </article>
@@ -92,7 +92,7 @@ export default function Profile() {
                                         <div className={"py-0.5"}><img src={"./img/invaders/a.png"}/></div>
                                         <div>Campaign creative</div>
                                     </div>
-                                    <div><img src={"./img/chevron-up.png"}/></div>
+                                    <div><img src={"./img/chevron-down.png"}/></div>
                                 </article>
                             </div>
                             <div>
@@ -101,8 +101,28 @@ export default function Profile() {
                                         <div><img src={"./img/invaders/b.png"}/></div>
                                         <div>Brand development</div>
                                     </div>
-                                    <div><img src={"./img/chevron-down.png"}/></div>
+                                    <div><img src={"./img/chevron-up.png"}/></div>
                                 </article>
+                                <div className={"flex flex-col border-b border-l border-r border-primary divide-y divide-primary max-h-48 overflow-scroll"}>
+                                    <article className={"flex justify-between items-center p-2"}>
+                                        <div className={"flex gap-x-4 items-center"}>
+                                            <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/yearn.jpeg"}/></div>
+                                            <div>Yearn</div>
+                                        </div>
+                                        <div className={"mr-2"}>
+                                            <div><img src={"./img/invaders/speech.png"}/></div>
+                                        </div>
+                                    </article>
+                                    <article className={"flex justify-between items-center p-2"}>
+                                        <div className={"flex gap-x-4 items-center"}>
+                                            <div><img className={"h-6 w-6 rounded-3xl"} src={"./img/tokens/euler.jpg"}/></div>
+                                            <div>Yooler</div>
+                                        </div>
+                                        <div className={"mr-2"}>
+                                            <div><img src={"./img/invaders/speech.png"}/></div>
+                                        </div>
+                                    </article>
+                                </div>
                             </div>
                         </article>
                     </div>
