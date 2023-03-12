@@ -5,10 +5,8 @@ import { Popover } from "@headlessui/react";
 const Header = ({ ownEnsName }) => {
   const { userInfo, logout, login } = useTwitter();
   return (
-    <header className="flex flex-row px-6 h-24 bg-pink-200">
-      <div className={"mr-auto"}>
-        <h1 className="py-7 text-slate-800">Strt Cred</h1>
-      </div>
+    <header className="flex flex-row justify-between items-center py-8 px-4 border-b border-t border-primary bg-pink-200">
+        <h1 className="text-xs">STRT CRED</h1>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
           <div className="flex justify-center items-center mr-3">
@@ -30,7 +28,7 @@ const Header = ({ ownEnsName }) => {
                       src={userInfo.profileImage.replace("_normal", "_bigger")}
                       alt={userInfo.name}
                     />
-                    <span className="max-w-full truncate text-slate-800">{userInfo.name}</span>
+                    <div className="mt-2 max-w-full truncate text-xs">{userInfo.name}</div>
                   </div>
                 </Popover.Button>
 
