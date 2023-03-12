@@ -50,5 +50,6 @@
         --bg-input: #fff;
         --txt-hover: #05121B;
         --txt-inverted: #ffffff;
+        --gradient-01: linear-gradient(45deg, var(--primary) 0%, var(--tertiary) 50%);
     }
 }

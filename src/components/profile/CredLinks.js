@@ -6,7 +6,7 @@ const CredLinks = ({title, items }) => {
             <h2 className={""}>{title}</h2>
             {items.map((item, i) => (
                 <div key={i} className={"flex gap-x-2 items-center"}>
-                    <div><img className={"h-6 w-6 rounded-3xl"} src={`./img/tokens/${item.image}`}/></div>
+                    <div><img className={"h-6 w-6 rounded-3xl"} src={`../img/tokens/${item.image}`}/></div>
                     <div><a className={"cursor-pointer border-primary hover:border-b"}>{item.name}</a></div>
                 </div>
             ))}

@@ -60,9 +60,10 @@ const TokenGatedContent = () => {
     return (<>
             <Header ownEnsName={ownEnsName}/>
 
-            <div className="flex flex-col justify-center items-center my-auto h-24 border-b border-primary">
-                <article className="text-xs">
-                    {!openConnectModal && provider && !loading ? (ownEnsName ? (<TwitterVerification/>) : (<div className={"flex flex-col items-center justify-items-stretch gap-y-4"}>
+            <div className="flex flex-col gap-y-8 p-4 justify-center items-center my-auto">
+                <article className="text-xs flex justify-items-center">
+                    {!openConnectModal && provider && !loading ? (ownEnsName ? (<TwitterVerification/>) : (
+                        <div className={"flex flex-col items-center justify-items-stretch gap-y-4"}>
                                 <div>Please connect a wallet that resolves to an ENS domain</div>
                                 <Button onClick={handleClick}>Connect wallet</Button></div>)) : (
                         <Button onClick={handleClick}>Connect wallet</Button>)}
