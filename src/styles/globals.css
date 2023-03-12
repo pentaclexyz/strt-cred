@@ -7,23 +7,23 @@
 
 @layer base {
 
-    h1 {
-        @apply text-2xl;
-        @apply sm:text-4xl;
-    }
+/*    h1 {*/
+/*        @apply text-2xl;*/
+/*        @apply sm:text-4xl;*/
+/*    }*/
 
-    h2 {
-        @apply text-xl;
-        @apply pt-4;
-        @apply pb-2;
-    }
+/*    h2 {*/
+/*        @apply text-xl;*/
+/*        @apply pt-4;*/
+/*        @apply pb-2;*/
+/*    }*/
 
-    h3 {
-        @apply text-lg;
-}
-    h4 {
-        @apply text-sm;
-}
+/*    h3 {*/
+/*        @apply text-lg;*/
+/*}*/
+/*    h4 {*/
+/*        @apply text-sm;*/
+/*}*/
 
     html,
     body {
@@ -37,7 +37,7 @@
 
     :root, html[data-theme="light"] {
         --primary: #000;
-        --secondary: #E9A6D3;
+        --secondary: #FF00FF;
         --tertiary: #0000FF;
         --highlight: #94F9B5;
         --border-primary: #fff;
