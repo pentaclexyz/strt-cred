@@ -7,6 +7,10 @@
     src: url("../../public/fonts/pixel_invaders.ttf") format("truetype");
 }
 @font-face {
+    font-family: "minitel";
+    src: url("../../public/fonts/Minitel.ttf") format("truetype");
+}
+@font-face {
     font-family: "material-icons";
     font-style: normal;
     font-weight: normal;
@@ -18,6 +22,9 @@
 }
 .invaders {
     font-family: invaders;
+}
+.minitel {
+    font-family: minitel;
 }
 .apple {
     font-family: apple;
