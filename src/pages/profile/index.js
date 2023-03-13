@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 import Toggle from "../../components/profile/Toggle";
 import TabNav from "../../components/navigation/TabNav";
 import EntityLink from "../../components/elements/EntityLink";
+import Fave from "../../components/elements/Fave";
 
 export default function Profile() {
     const ensName = useRecoilValue(ensNameState);
@@ -37,7 +38,7 @@ export default function Profile() {
             <Header/>
             <section className={"flex flex-col py-4 text-xs text-center"}>
                 <article className={"flex justify-between px-4 pb-8 pt-6 border-b border-primary"}>
-                    <div></div>
+                    <div className={"w-16"}></div>
                     <TabNav items={["All", "Teams", "People"]}/>
                     <Toggle left={"All"} right={"Faves"}/>
                 </article>
@@ -73,7 +74,7 @@ export default function Profile() {
                         Given
                     </div>
                     <div className={"col-span-1 ml-auto"}>
-                        <div>Fave</div>
+                        <Fave/>
                     </div>
                 </article>
             </section>

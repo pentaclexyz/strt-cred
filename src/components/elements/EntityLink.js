@@ -1,4 +1,4 @@
-const EntityLink = ({image, name}) => {
+const EntityLink = ({image, name, type, bio}) => {
     return (
         <div className={"flex gap-x-2 items-center"}>
             <div><img className={"h-6 w-6 rounded-3xl"} src={`../img/tokens/${image}`}/></div>
