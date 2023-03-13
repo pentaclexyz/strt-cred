@@ -131,8 +131,8 @@ export default function Profile({ categories }) {
                 <h3 className="col-span-12 mt-3 mb-6 text-2xl text-center">
                   Select your SubSkills
                 </h3>
-                {selectedCategories.map((category) => {
-                    return <SubSkillSelect  subCategories={subCategories} setSubCategories={setSubCategories} category={category}  />
+                {selectedCategories.map((category, i) => {
+                    return <SubSkillSelect key={i} subCategories={subCategories} setSubCategories={setSubCategories} category={category}  />
                 })}
               </div>
             </>

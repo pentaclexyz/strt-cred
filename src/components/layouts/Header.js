@@ -47,7 +47,17 @@ const Header = () => {
                   {...attributes.popper}
                 >
                   <div className="grid bg-white">
-                    <span className="px-4 py-2 text-xs cursor-pointer text-primary" onClick={() => logout()}>
+                    <Link href="/profile">
+                      <span className="px-4 py-2 text-xs cursor-pointer text-primary">
+                        Profile
+                      </span>
+                    </Link>
+                    <Link href="/profile/edit">
+                      <span className="px-4 py-2 text-xs cursor-pointer text-primary">
+                        Profile Edit
+                      </span>
+                    </Link>
+                    <span className="px-4 py-2 text-xs cursor-pointer text-primary">
                       Disconnect twitter
                     </span>
                   </div>
