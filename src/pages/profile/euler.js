@@ -17,7 +17,7 @@ export default function Profile() {
     const twitterId="cdartttt";
     const blog="cdartttt.substack.com";
     const website="cdartttt.com";
-    const image="cdart.jpeg";
+    const image="cdart.jpg";
 
     return (
         <>
@@ -35,7 +35,7 @@ export default function Profile() {
 
                 <article className={"px-4 py-4 flex flex-row justify-between items-center border-b border-primary"}>
                     <div className={"flex gap-x-4 items-center"}>
-                        <div><img className={"rounded-full w-20 h-20"} src={`../img/${image}`}/></div>
+                        <div><img className={"rounded-full w-20 h-20"} src={`../img/tokens/${image}`}/></div>
                         <div className={"flex flex-col gap-y-2"}>
                             <div>@{name}</div>
                             <div>{bio}</div>
@@ -59,7 +59,7 @@ export default function Profile() {
                                 name: "West Ham",
                                 image: "westham.jpg"
                             }]}/>
-                            <CredLinks title={"Worked with"} items={[{name: "Scups", image: "scups.jpeg"}, {
+                            <CredLinks title={"Worked with"} items={[{name: "Scups", image: "scups.jpg"}, {
                                 name: "Laurel",
                                 image: "laurel.jpg"
                             }]}/>
@@ -80,7 +80,7 @@ export default function Profile() {
                                 <CredSkill name={"Brand development"} image={"b.png"}/>
                                 <div
                                     className={"flex flex-col border-b border-l border-r border-primary divide-y divide-primary max-h-48 overflow-scroll"}>
-                                    <CredProject name={"Yearn"} tokenImage={"yearn.jpeg"}/>
+                                    <CredProject name={"Yearn"} tokenImage={"yearn.jpg"}/>
                                     <CredProject name={"Yooler"} tokenImage={"euler.jpg"}/>
                                 </div>
                             </article>
