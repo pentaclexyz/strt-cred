@@ -6,6 +6,8 @@ import {useConnectModal} from '@rainbow-me/rainbowkit';
 import {useSigner} from 'wagmi';
 import TwitterVerification from './TwitterVerification';
 import Header from "./layouts/Header";
+import { useSetRecoilState } from 'recoil';
+import { ensNameState } from '../providers/Ens';
 
 const ENS_CONTRACT = '0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85';
 
@@ -15,12 +17,13 @@ const alchemyConfig = {
 
 const alchemy = new Alchemy(alchemyConfig);
 
-const TokenGatedContent = () => {
+const EnsGatedContent = () => {
     const [ownEnsName, setOwnEnsName] = useState(false);
     const {ssx} = useSSX();
     const {openConnectModal} = useConnectModal();
     const [loading, setLoading] = useState(false);
     const {data: provider} = useSigner();
+    const setEnsName = useSetRecoilState(ensNameState);
 
     useEffect(() => {
         if (ssx && loading) {
@@ -29,8 +32,9 @@ const TokenGatedContent = () => {
                 .signIn()
                 .then(() => {
                     alchemy.nft.getNftsForOwner(ssx?.address()).then(nfts => {
-                        const ownENS = nfts.ownedNfts.filter(({contract}) => contract.address === ENS_CONTRACT)?.length > 0;
-                        setOwnEnsName(ownENS);
+                        const ownENS = nfts.ownedNfts.find(({contract}) => contract.address === ENS_CONTRACT);
+                        setOwnEnsName(ownENS.title);
+                        setEnsName(ownENS.title);
                         setLoading(false);
                     });
                 })
@@ -58,12 +62,12 @@ const TokenGatedContent = () => {
     };
 
     return (<>
-            <Header ownEnsName={ownEnsName}/>
+            <Header/>
 
-            <div className="flex flex-col gap-y-8 p-4 justify-center items-center my-auto">
-                <article className="text-xs flex justify-items-center">
+            <div className="flex flex-col gap-y-8 justify-center items-center p-4 my-auto">
+                <article className="flex justify-items-center text-xs">
                     {!openConnectModal && provider && !loading ? (ownEnsName ? (<TwitterVerification/>) : (
-                        <div className={"flex flex-col items-center justify-items-stretch gap-y-4"}>
+                        <div className={"flex flex-col gap-y-4 justify-items-stretch items-center"}>
                                 <div>Please connect a wallet that resolves to an ENS domain</div>
                                 <Button onClick={handleClick}>Connect wallet</Button></div>)) : (
                         <Button onClick={handleClick}>Connect wallet</Button>)}
@@ -72,4 +76,4 @@ const TokenGatedContent = () => {
         </>);
 };
 
-export default TokenGatedContent;
+export default EnsGatedContent;

@@ -6,7 +6,7 @@ import Header from "../../components/layouts/Header";
 import CredProject from "../../components/profile/CredProject";
 import CredSkill from "../../components/profile/CredSkill";
 import Toggle from "../../components/profile/Toggle";
-import SkillNav from "../../components/profile/SkillNav";
+import TabNav from "../../components/navigation/TabNav";
 import CredLinks from "../../components/profile/CredLinks";
 
 export default function Profile() {
@@ -69,7 +69,7 @@ export default function Profile() {
 
                     <div className={"col-span-8 flex flex-col border-l border-primary"}>
                         <article className={"flex justify-between w-full border-b p-4 border-primary"}>
-                            <SkillNav items={["Creative", "Product", "Developer"]}/>
+                            <TabNav items={["Creative", "Product", "Developer"]}/>
                             <Toggle left={"All"} right={"Verified"}/>
                         </article>
                         <div className={"p-4 grid grid-cols-2 gap-x-4"}>
