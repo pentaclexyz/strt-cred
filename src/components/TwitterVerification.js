@@ -1,3 +1,4 @@
+import Link from 'next/link.js';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import {  twitterUserInfoState, useTwitter } from '../providers/Twitter.js';
@@ -75,15 +76,16 @@ const LoggedInView = () => {
   }, []);
 
   return (
-    <>
-      {userInfo && (
-          <div>@{userInfo.name}</div>
-      )}
-
-      <div>
+    <section class={"flex flex-col gap-y-2 text-center"}>
+        {userInfo && (
+            <div>@{userInfo.name}</div>
+        )}
         <Button onClick={logout}>Disconnect twitter</Button>
-      </div>
-    </>
+        <article className={"flex flex-col gap-y-8 mt-8"}>
+            <h2 className={"p-4 border border-primary"}>Temporary navigation:</h2>
+            <Link href={"/profile"}>Profile</Link>
+        </article>
+    </section>
   );
 };
 
