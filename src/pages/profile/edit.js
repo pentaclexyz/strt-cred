@@ -1,6 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { NextSeo } from "next-seo";
 import Header from "../../components/layouts/Header";
+import CredProject from "../../components/profile/CredProject";
+import CredSkill from "../../components/profile/CredSkill";
+import Toggle from "../../components/profile/Toggle";
+import TabNav from "../../components/navigation/TabNav";
+import CredLinks from "../../components/profile/CredLinks";
 import { twitterUserInfoState } from "../../providers/Twitter";
 import { useRecoilValue } from "recoil";
 import { ensNameState } from "../../providers/Ens";
@@ -54,10 +59,6 @@ export default function Profile() {
         <div className={"p-8 text-center bg-highlight"}>
           <h1>Pentacle doing Monday</h1>
         </div>
-
-        {/*TODO why is this component breaking the page?*/}
-        {/*<Profile name={name} bio={"Semi-retired derivatives trader."} githubId={"cdartttt"}*/}
-        {/*         twitterId={"cdartttt"} blog={"cdartttt.com"} website={"cdartttt.com"}/>*/}
 
         <article
           className={
