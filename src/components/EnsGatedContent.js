@@ -64,10 +64,10 @@ const EnsGatedContent = () => {
     return (<>
             <Header/>
 
-
-            <div className="flex flex-col justify-center items-center my-auto border-b border-primary">
-                <article className="p-4 text-xs">
-                    {!openConnectModal && provider && !loading ? (ownEnsName ? (<TwitterVerification/>) : (<div className={"flex flex-col gap-y-4 justify-items-stretch items-center"}>
+            <div className="flex flex-col gap-y-8 justify-center items-center p-4 my-auto">
+                <article className="flex justify-items-center text-xs">
+                    {!openConnectModal && provider && !loading ? (ownEnsName ? (<TwitterVerification/>) : (
+                        <div className={"flex flex-col gap-y-4 justify-items-stretch items-center"}>
                                 <div>Please connect a wallet that resolves to an ENS domain</div>
                                 <Button onClick={handleClick}>Connect wallet</Button></div>)) : (
                         <Button onClick={handleClick}>Connect wallet</Button>)}

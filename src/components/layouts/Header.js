@@ -11,8 +11,8 @@ const Header = () => {
   const userInfo = useRecoilValue(twitterUserInfoState);
 
   return (
-    <header className="flex flex-row justify-between items-center px-4 py-2 h-24 border-t border-b border-primary text-txt-inverted bg-tertiary">
-      <Link href="/"><h1 className="text-xs">STRT CRED</h1></Link>
+    <header className="flex flex-row justify-between items-center px-4 py-2 h-24 border-t border-b bg-tertiary border-primary text-txt-inverted dotted-01">
+        <Link href={"/"}><h1 className="text-xs">STRT CRED</h1></Link>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
           <div className="flex justify-center items-center mr-3">
@@ -29,8 +29,7 @@ const Header = () => {
                 <Popover.Button className={"w-24 h-full"}>
                   {" "}
                   <div className={"flex flex-col justify-center items-center"}>
-                    <img
-                      className={"w-12 h-12 rounded-3xl border"}
+                    <img className={"w-12 h-12 rounded-3xl border"}
                       src={userInfo.profileImage.replace("_normal", "_bigger")}
                       alt={userInfo.name}
                     />
@@ -40,10 +39,12 @@ const Header = () => {
 
                 <Popover.Panel className="overflow-hidden absolute z-10 rounded shadow-lg">
                   <div className="grid bg-white">
-                    <span className="px-4 py-2 text-xs cursor-pointer hover:bg-slate-200 text-slate-900" onClick={() => logout()}>
+                    <span className="px-4 py-2 text-xs cursor-pointer text-primary" onClick={() => logout()}>
                       Disconnect twitter
                     </span>
                   </div>
+
+                  {/*<img src="/solutions.jpg" alt="" />*/}
                 </Popover.Panel>
               </Popover>
             </>

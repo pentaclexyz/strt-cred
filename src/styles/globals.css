@@ -1,5 +1,6 @@
 @import url(./siwe.css);
 @import url(./fonts.css);
+@import url(./pixels.css);
 
 @tailwind base;
 @tailwind components;
@@ -40,6 +41,7 @@
         --secondary: #FF00FF;
         --tertiary: #0000FF;
         --highlight: #94F9B5;
+        --white: #fff;
         --border-primary: #fff;
         --border-secondary: #D5CDCB;
         --bg-01: #fff;
@@ -48,5 +50,6 @@
         --bg-input: #fff;
         --txt-hover: #05121B;
         --txt-inverted: #ffffff;
+        --gradient-01: linear-gradient(45deg, var(--primary) 0%, var(--tertiary) 50%);
     }
 }
