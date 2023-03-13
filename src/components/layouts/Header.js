@@ -1,12 +1,18 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useTwitter } from "../../providers/Twitter.js";
+import { twitterUserInfoState, useTwitter } from "../../providers/Twitter.js";
 import { Popover } from "@headlessui/react";
+import { useRecoilValue } from "recoil";
+import { ensNameState } from "../../providers/Ens.js";
+import Link from "next/link.js";
 
-const Header = ({ ownEnsName }) => {
-  const { userInfo, logout, login } = useTwitter();
+const Header = () => {
+  const { logout, login } = useTwitter();
+  const ownEnsName = useRecoilValue(ensNameState);
+  const userInfo = useRecoilValue(twitterUserInfoState);
+
   return (
-    <header className="flex flex-row justify-between items-center h-24 py-2 px-4 border-b border-t border-primary text-txt-inverted bg-tertiary">
-        <h1 className="text-xs">STRT CRED</h1>
+    <header className="flex flex-row justify-between items-center px-4 py-2 h-24 border-t border-b border-primary text-txt-inverted bg-tertiary">
+      <Link href="/"><h1 className="text-xs">STRT CRED</h1></Link>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
           <div className="flex justify-center items-center mr-3">
@@ -28,18 +34,16 @@ const Header = ({ ownEnsName }) => {
                       src={userInfo.profileImage.replace("_normal", "_bigger")}
                       alt={userInfo.name}
                     />
-                    <div className="mt-2 max-w-full truncate text-xs">{userInfo.name}</div>
+                    <div className="mt-2 max-w-full text-xs truncate">{userInfo.name}</div>
                   </div>
                 </Popover.Button>
 
                 <Popover.Panel className="overflow-hidden absolute z-10 rounded shadow-lg">
                   <div className="grid bg-white">
-                    <span className="mt-2 px-4 py-2 text-xs cursor-pointer hover:bg-slate-200 " onClick={() => logout()}>
+                    <span className="px-4 py-2 text-xs cursor-pointer hover:bg-slate-200 text-slate-900" onClick={() => logout()}>
                       Disconnect twitter
                     </span>
                   </div>
-
-                  <img src="/solutions.jpg" alt="" />
                 </Popover.Panel>
               </Popover>
             </>

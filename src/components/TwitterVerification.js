@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { useEffect } from 'react';
-import { useTwitter } from '../providers/Twitter.js';
+import { useSetRecoilState } from 'recoil';
+import {  twitterUserInfoState, useTwitter } from '../providers/Twitter.js';
 import Button from "./Button";
 
 const categories = [
@@ -63,21 +65,29 @@ const categories = [
 
 const LoggedInView = () => {
   const { getUserInfo, userInfo, logout } = useTwitter();
+  const setUserInfo = useSetRecoilState(twitterUserInfoState);
 
   useEffect(() => {
     (async () => {
       const twitterUser = await getUserInfo();
+      setUserInfo(twitterUser)
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      {userInfo && (
-          <div>@{userInfo.name}</div>
-      )}
+      <div className='flex flex-col gap-3'>
+         {userInfo && (
+            <div>Hello @{userInfo.name}</div>
+        )}
 
-      <div>
-        <Button onClick={logout}>Disconnect twitter</Button>
+        
+
+        <div className='flex flex-col gap-3'>
+          <Link href="/profile"><Button>Complete your profile</Button></Link>
+          <Button onClick={logout}>Disconnect twitter</Button>
+        </div>
       </div>
     </>
   );
@@ -87,9 +97,9 @@ export default function TwitterVerification() {
   const { login, provider } = useTwitter();
 
   const unloggedInView = (
-    <button onClick={login} className="card">
+    <Button onClick={login} className="card">
       Log in with Twitter
-    </button>
+    </Button>
   );
 
   return (

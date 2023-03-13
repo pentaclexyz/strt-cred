@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {NextSeo} from "next-seo";
 import PageHeading from "../../components/elements/PageHeading";
 import LayoutPageContent from "../../components/layouts/LayoutPageContent";
 import Header from "../../components/layouts/Header";
+import { useRecoilValue } from "recoil";
+import { ensNameState } from "../../providers/Ens";
+import { useRouter } from "next/router";
 
 export default function Profile() {
+    const ensName = useRecoilValue(ensNameState);
+    const router = useRouter();
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        (async () => {
+            if (!ensName) {
+              await  router.push('/');
+            }
+            setMounted(true);
+        })()
+    }, []);
 
+    if (!mounted) {
+        return <></>
+    }
     return (
         <>
             <NextSeo
@@ -24,9 +41,9 @@ export default function Profile() {
                 {/*    <img className={"w-full"} src="./img/user-bg.png" alt="profile image"/>*/}
                 {/*</article>*/}
 
-                <article className={"px-4 py-4 flex flex-row justify-between items-center border-b border-primary"}>
+                <article className={"flex flex-row justify-between items-center px-4 py-4 border-b border-primary"}>
                     <div className={"flex gap-x-4 items-center"}>
-                        <div><img className={"rounded-2xl w-20 h-20"} src={"./img/cdart.jpeg"}/></div>
+                        <div><img className={"w-20 h-20 rounded-2xl"} src={"./img/cdart.jpeg"}/></div>
                         <div className={"flex flex-col gap-y-2"}>
                             <div>@cdartttt</div>
                             <div>Semi-retired derivatives trader.</div>
@@ -43,7 +60,7 @@ export default function Profile() {
 
                     <div className={"col-span-4"}>
                         <div className={"flex flex-col"}>
-                            <article className={"flex flex-col border-b border-primary px-4 py-6 gap-y-4"}>
+                            <article className={"flex flex-col gap-y-4 px-4 py-6 border-b border-primary"}>
                                 <h2 className={""}>Contributed</h2>
                                 <div className={"flex gap-x-2 items-center"}>
                                     <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
@@ -54,14 +71,14 @@ export default function Profile() {
                                     <div>West Ham</div>
                                 </div>
                             </article>
-                            <article className={"flex flex-col border-b border-primary px-4 py-6 gap-y-4"}>
+                            <article className={"flex flex-col gap-y-4 px-4 py-6 border-b border-primary"}>
                                 <h2 className={""}>Worked with</h2>
                                 <div className={"flex gap-x-2 items-center"}>
                                     <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
                                     <div>Scups</div>
                                 </div>
                             </article>
-                            <article className={"flex flex-col px-4 py-6 gap-y-4"}>
+                            <article className={"flex flex-col gap-y-4 px-4 py-6"}>
                                 <h2 className={""}>Similar ppl</h2>
                                 <div className={"flex gap-x-2 items-center"}>
                                     <div><img className={"rounded-2xl"} src={"./img/pfp.png"}/></div>
@@ -71,8 +88,8 @@ export default function Profile() {
                         </div>
                     </div>
 
-                    <div className={"col-span-8 flex flex-col border-l border-primary"}>
-                        <article className={"flex justify-between w-full border-b p-4 border-primary"}>
+                    <div className={"flex flex-col col-span-8 border-l border-primary"}>
+                        <article className={"flex justify-between p-4 w-full border-b border-primary"}>
                             <nav className={"flex gap-x-8"}>
                                 <div className={"border-b border-primary"}>All</div>
                                 <div>Creative</div>
@@ -85,9 +102,9 @@ export default function Profile() {
                                 <div>Verified</div>
                             </div>
                         </article>
-                        <article className={"p-4 grid grid-cols-2 gap-x-4"}>
+                        <article className={"grid grid-cols-2 gap-x-4 p-4"}>
                             <div>
-                                <article className={"border border-primary p-4 flex justify-between items-center"}>
+                                <article className={"flex justify-between items-center p-4 border border-primary"}>
                                     <div className={"flex gap-x-4 items-center"}>
                                         <div className={"py-0.5"}><img src={"./img/invaders/a.png"}/></div>
                                         <div>Campaign creative</div>
@@ -96,7 +113,7 @@ export default function Profile() {
                                 </article>
                             </div>
                             <div>
-                                <article className={"border border-primary p-4 flex justify-between items-center"}>
+                                <article className={"flex justify-between items-center p-4 border border-primary"}>
                                     <div className={"flex gap-x-4 items-center"}>
                                         <div><img src={"./img/invaders/b.png"}/></div>
                                         <div>Brand development</div>
