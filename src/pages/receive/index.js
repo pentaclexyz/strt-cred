@@ -6,6 +6,7 @@ import {ensNameState} from "../../providers/Ens";
 import {useRouter} from "next/router";
 
 export default function Receive() {
+    const name= "Receive";
     const ensName = useRecoilValue(ensNameState);
     const router = useRouter();
     const [mounted, setMounted] = useState(false);

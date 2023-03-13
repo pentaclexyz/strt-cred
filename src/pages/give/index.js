@@ -6,6 +6,7 @@ import {ensNameState} from "../../providers/Ens";
 import {useRouter} from "next/router";
 
 export default function Give() {
+    const name= "Give";
     const ensName = useRecoilValue(ensNameState);
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
