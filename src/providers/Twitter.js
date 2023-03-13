@@ -39,7 +39,7 @@ const TwitterProvider = ({ children }) => {
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
           },
-          web3AuthNetwork: 'cyan',
+          web3AuthNetwork: 'testnet',
         });
 
         setWeb3auth(web3auth);
