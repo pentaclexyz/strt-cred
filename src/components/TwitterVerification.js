@@ -26,6 +26,7 @@ const LoggedInView = () => {
         <article className={"flex flex-col gap-y-8 mt-8"}>
             <h2 className={"p-4 border border-primary"}>Temporary navigation:</h2>
             <Link href={"/profile"}>Profile</Link>
+            <Link href={"/profile/edit"}>Profile-Edit</Link>
         </article>
     </section>
   );

@@ -1,11 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { NextSeo } from "next-seo";
 import Header from "../../components/layouts/Header";
-import CredProject from "../../components/profile/CredProject";
-import CredSkill from "../../components/profile/CredSkill";
-import Toggle from "../../components/profile/Toggle";
-import TabNav from "../../components/navigation/TabNav";
-import CredLinks from "../../components/profile/CredLinks";
 import { twitterUserInfoState } from "../../providers/Twitter";
 import { useRecoilValue } from "recoil";
 import { ensNameState } from "../../providers/Ens";
@@ -14,7 +9,7 @@ import Button from "../../components/Button";
 import SkillSelect from "../../components/profile/SkillSelect";
 import SubSkillSelect from "../../components/profile/SubSkillSelect";
 
-export default function Profile() {
+export default function Profile({ categories }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const userInfo = useRecoilValue(twitterUserInfoState);
   const ensName = useRecoilValue(ensNameState);
@@ -32,9 +27,12 @@ export default function Profile() {
   }, [ensName, router]);
 
   useEffect(() => {
-      const transformed = selectedCategories.reduce((acc, curr) => ({ [curr.name]: [] ,...acc }), {});
-      setSubCategories(transformed);
-  }, [selectedCategories])
+    const transformed = selectedCategories.reduce(
+      (acc, curr) => ({ [curr.name]: [], ...acc }),
+      {}
+    );
+    setSubCategories(transformed);
+  }, [selectedCategories]);
 
 
   const bio = "Semi-retired derivatives trader.";
@@ -113,6 +111,7 @@ export default function Profile() {
                 <SkillSelect
                   selectedCategories={selectedCategories}
                   setSelectedCategories={setSelectedCategories}
+                  categories={categories}
                 />
               </div>
               {selectedCategories.length > 0 ? (
@@ -132,8 +131,8 @@ export default function Profile() {
                 <h3 className="col-span-12 mt-3 mb-6 text-2xl text-center">
                   Select your SubSkills
                 </h3>
-                {selectedCategories.map((category) => {
-                    return <SubSkillSelect  subCategories={subCategories} setSubCategories={setSubCategories} category={category}  />
+                {selectedCategories.map((category, i) => {
+                    return <SubSkillSelect key={i} subCategories={subCategories} setSubCategories={setSubCategories} category={category}  />
                 })}
               </div>
             </>
@@ -144,4 +143,13 @@ export default function Profile() {
       </section>
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  const categories = await (
+    await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/categories`)
+  ).json();
+  return {
+    props: { categories },
+  };
 }
