@@ -18,7 +18,7 @@ const LoggedInView = () => {
   }, []);
 
   return (
-    <section class={"flex flex-col gap-y-2 text-center"}>
+    <section className={"flex flex-col gap-y-2 text-center"}>
         {userInfo && (
             <div>@{userInfo.name}</div>
         )}
