@@ -58,7 +58,7 @@ export default function Profile() {
                 </article>
                 <article className={"grid grid-cols-12 p-4 border-b border-primary items-center"}>
                     <div className={"col-span-2 text-left"}>
-                        <EntityLink name={"Euler"} image={"../../img/tokens/euler.jpg"}/>
+                        <EntityLink name={"euler"} image={"../../img/tokens/euler.jpg"}/>
                     </div>
                     <div className={"col-span-3 text-left"}>
                         <ul className={"flex gap-x-2"}>
