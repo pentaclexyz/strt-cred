@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
+    "@popperjs/core": "^2.11.6",
     "@heroicons/react": "^2.0.16",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@spruceid/ssx": "^1.2.4",
@@ -31,6 +32,7 @@
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
     "stream-browserify": "^3.0.0",
