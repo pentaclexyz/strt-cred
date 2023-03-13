@@ -1,11 +1,11 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
-import { CATEGORIES } from "../../lib/categories";
 
 export default function SkillSelect({
   selectedCategories,
   setSelectedCategories,
+  categories,
 }) {
   return (
     <Listbox
@@ -37,15 +37,15 @@ export default function SkillSelect({
           leaveTo="opacity-0"
         >
           <Listbox.Options className="overflow-auto absolute z-20 py-1 mt-1 w-full max-h-60 text-base bg-white rounded-md border ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm border-primary">
-            {CATEGORIES.map((person) => (
+            {categories.map((category) => (
               <Listbox.Option
-                key={person.name}
-                value={person}
+                key={category.name}
+                value={category}
                 className={`relative py-2 pr-4 pl-10 text-gray-900 cursor-pointer select-none`}
               >
                 {({ selected }) => (
                   <>
-                    <span className={`block truncate`}>{person.name}</span>
+                    <span className={`block truncate`}>{category.name}</span>
                     {selected ? (
                       <span className="flex absolute inset-y-0 left-0 items-center pl-3 text-gray-900">
                         <CheckIcon className="w-5 h-5" aria-hidden="true" />
