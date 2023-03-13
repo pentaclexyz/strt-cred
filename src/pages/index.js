@@ -1,5 +1,5 @@
-import TokenGatedContent from '../components/TokenGatedContent';
+import EnsGatedContent from '../components/EnsGatedContent';
 
 export default function Index() {
-  return <TokenGatedContent />;
+  return <EnsGatedContent />;
 }

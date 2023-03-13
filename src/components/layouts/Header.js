@@ -1,12 +1,17 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useTwitter } from "../../providers/Twitter.js";
+import { twitterUserInfoState, useTwitter } from "../../providers/Twitter.js";
 import { Popover } from "@headlessui/react";
-import Link from "next/link";
+import { useRecoilValue } from "recoil";
+import { ensNameState } from "../../providers/Ens.js";
+import Link from "next/link.js";
 
-const Header = ({ ownEnsName }) => {
-  const { userInfo, logout, login } = useTwitter();
+const Header = () => {
+  const { logout, login } = useTwitter();
+  const ownEnsName = useRecoilValue(ensNameState);
+  const userInfo = useRecoilValue(twitterUserInfoState);
+
   return (
-    <header className="flex flex-row bg-tertiary justify-between items-center h-24 py-2 px-4 border-b border-t border-primary text-txt-inverted dotted-01">
+    <header className="flex flex-row justify-between items-center px-4 py-2 h-24 border-t border-b bg-tertiary border-primary text-txt-inverted dotted-01">
         <Link href={"/"}><h1 className="text-xs">STRT CRED</h1></Link>
       {ownEnsName ? (
         <div className="flex flex-row justify-items">
@@ -28,7 +33,7 @@ const Header = ({ ownEnsName }) => {
                       src={userInfo.profileImage.replace("_normal", "_bigger")}
                       alt={userInfo.name}
                     />
-                    <div className="mt-2 max-w-full truncate text-xs">{userInfo.name}</div>
+                    <div className="mt-2 max-w-full text-xs truncate">{userInfo.name}</div>
                   </div>
                 </Popover.Button>
 

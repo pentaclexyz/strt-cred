@@ -5,12 +5,19 @@ import { Web3AuthNoModal } from '@web3auth/no-modal';
 import { OpenloginAdapter } from '@web3auth/openlogin-adapter';
 import { WalletConnectV1Adapter } from '@web3auth/wallet-connect-v1-adapter';
 import RPC from '../web3RPC.js'; // for using web3.js
+import { atom, useRecoilValue, useSetRecoilState } from 'recoil';
+
+export const twitterUserInfoState = atom({
+  key: 'TwitterUserInfo',
+  default: null
+});
 
 const TwitterContext = createContext({});
 
 const clientId = process.env.NEXT_PUBLIC_WEB3_AUTH_KEY; // get from https://dashboard.web3auth.io
 const TwitterProvider = ({ children }) => {
-  const [userInfo, setUserInfo] = useState(null);
+  const setUserInfo = useSetRecoilState(twitterUserInfoState);
+  const userInfo = useRecoilValue(twitterUserInfoState);
   const [web3auth, setWeb3auth] = useState(null);
   const [provider, setProvider] = useState(null);
   
@@ -20,7 +27,6 @@ const TwitterProvider = ({ children }) => {
       return;
     }
     const user = await web3auth.getUserInfo();
-    setUserInfo(user);
     return user;
   }, [web3auth]);
 
@@ -28,7 +34,6 @@ const TwitterProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        console.log(clientId)
         const web3auth = new Web3AuthNoModal({
           clientId,
           chainConfig: {
@@ -49,7 +54,8 @@ const TwitterProvider = ({ children }) => {
         if (web3auth.provider) {
           setProvider(web3auth.provider);
 
-          getUserInfo();
+          const userInfo = await getUserInfo();
+          setUserInfo(userInfo);
         }
       } catch (error) {
         // console.error(error);
